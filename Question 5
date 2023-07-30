@@ -1,0 +1,21 @@
+'''Given an integer array nums, find three numbers whose product is maximum and return the maximum product.
+
+Example 1:
+Input: nums = [1,2,3]
+Output: 6'''
+def maximumProduct(nums):
+    nums.sort()
+    n = len(nums)
+    
+    # Case 1: Product of the three largest positive numbers
+    product_case1 = nums[n-1] * nums[n-2] * nums[n-3]
+    
+    # Case 2: Product of two smallest negative numbers and the largest positive number
+    product_case2 = nums[0] * nums[1] * nums[n-1]
+    
+    # Return the maximum product from both cases
+    return max(product_case1, product_case2)
+
+# Test the function with the given example
+nums = [1, 2, 3]
+print(maximumProduct(nums))  # Output: 6
